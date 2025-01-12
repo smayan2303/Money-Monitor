@@ -12,6 +12,7 @@
   "dependencies": {
     "@clerk/clerk-react": "^5.21.0",
     "@types/react-table": "^7.7.20",
+    "notistack": "^3.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.1",
