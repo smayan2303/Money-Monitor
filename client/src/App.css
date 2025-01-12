@@ -1,0 +1,160 @@
+/* General page styles */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+.app-container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: white; /* Blue shade that matches button colors */
+  background: linear-gradient(to right, #0474fc, #03fbfb);
+  padding: 10px 20px;
+  padding-right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100%;
+  height: 75px;
+}
+
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* background: linear-gradient(to right, #0474fc, #03fbfb); */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.welcome-message {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.auth-buttons button {
+  width: 175px;
+  height: 60px;
+  border: 3px solid #00aaff;
+  border-radius: 45px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: white;
+  color: #00aaff;
+  font-size: 1.2em;
+  font-weight: 550;
+}
+
+.auth-buttons button:hover {
+  background: #00aaff;
+  color: white;
+  font-size: 1.5em;
+}
+
+.auth-buttons button:active {
+  transform: scale(0.95);
+}
+
+.auth-buttons .clerk-sign-up-button {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.auth-buttons .clerk-sign-in-button {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+
+.navbar a {
+  color: black; /* Ensures links are white */
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #e0e0e0; /* Light grey for hover effect */
+}
+
+/* Specific styling for Clerk's UserButton if needed */
+.clerk-user-button {
+  
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.navbar h2 {
+  margin-right: 20px;  /* Adjust the spacing as needed */
+}
+
+.clerk-user-button:hover {
+  color: #e0e0e0; /* Consistency in hover effects */
+}
+
+.navbar img {
+  width: 200px; /* Adjust the width as needed */
+  height: auto; /* Maintain the aspect ratio */
+  margin-right: 10px; /* Optional: Add spacing between the logo and text */
+}
+
+
+
+
+/* Full-page container for the auth page */
+.auth-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f4f8; /* Light background color */
+  padding: 20px; /* Ensure there's space around content */
+  box-sizing: border-box; /* Include padding in the box-sizing */
+}
+
+/* Content container for SignIn/SignUp */
+.auth-content {
+  width: 100%;
+  max-width: 400px; /* Prevent content from stretching too wide */
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Include padding and border in the width/height */
+}
+
