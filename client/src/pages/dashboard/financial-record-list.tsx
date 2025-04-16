@@ -19,10 +19,23 @@ const EditableCell: React.FC<EditableCellProps> = ({
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(initialValue);
-  const onBlur = () => {
+  /*const onBlur = () => {
     setIsEditing(false);
     updateRecord(row.index, column.id, value);
-  }
+  } */
+    const commitChange = () => {
+      setIsEditing(false);
+      updateRecord(row.index, column.id, value);
+    };
+  
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === "Enter") {
+        commitChange();
+      } else if (e.key === "Escape") {
+        setIsEditing(false);
+        setValue(initialValue); // Optionally revert changes on Escape
+      }
+    };
   return (
     <div onClick={() => editable && setIsEditing(true)} style={{cursor: editable ? "pointer" : "default"}}>
       {isEditing ? (
@@ -30,7 +43,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
           value={value}
           onChange={(e) => setValue(e.target.value)}
           autoFocus
-          onBlur={onBlur}
+          onKeyDown={handleKeyDown}
           style={{ width: "75%" }}
         />
       ) : typeof value === "string" ? (
