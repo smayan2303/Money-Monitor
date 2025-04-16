@@ -8,17 +8,23 @@ export const FinancialRecordForm = () => {
   const [category, setCategory] = useState<string>("");
   const [paymentMethod, setPaymentMethod] = useState<string>("");
   const { addRecord } = useFinancialRecords();
+  const [isExpense, setIsExpense] = useState<string>("");
 
   const { user } = useUser();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    let finalAmount = parseFloat(amount);
+    if (isExpense === "expense") {
+      finalAmount = -Math.abs(finalAmount);
+    }
+
     const newRecord = {
       userId: user?.id ?? "",
       date: new Date(),
       description: description,
-      amount: parseFloat(amount),
+      amount: finalAmount,
       category: category,
       paymentMethod: paymentMethod,
     };
@@ -28,6 +34,7 @@ export const FinancialRecordForm = () => {
     setAmount("");
     setCategory("");
     setPaymentMethod("");
+    setIsExpense("");
   };
 
   return (
@@ -44,7 +51,20 @@ export const FinancialRecordForm = () => {
           />
         </div>
         <div className="form-field">
-          <label>Amount (Negative for expenditures):</label>
+          <label>Transaction Type:</label>
+          <select
+            required
+            className="input"
+            value={isExpense}
+            onChange={(e) => setIsExpense(e.target.value)}
+          >
+            <option value="">Select Transaction Type</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+        </div>
+        <div className="form-field">
+          <label>Amount:</label>
           <input
             type="number"
             required
