@@ -33,7 +33,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
         commitChange();
       } else if (e.key === "Escape") {
         setIsEditing(false);
-        setValue(initialValue); // Optionally revert changes on Escape
+        setValue(initialValue); 
       }
     };
   return (
@@ -43,6 +43,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
           value={value}
           onChange={(e) => setValue(e.target.value)}
           autoFocus
+          onBlur={commitChange}
           onKeyDown={handleKeyDown}
           style={{ width: "75%" }}
         />
